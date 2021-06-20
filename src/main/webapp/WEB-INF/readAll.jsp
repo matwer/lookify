@@ -16,41 +16,45 @@
 </head>
 <body>
 	<!-- set up the navigation bar with a search button -->
-	<div class="container mt-5">
-		<nav class="navbar navbar-light bg-light">
+	<div class="container mt-5 border border-dark">
+		<nav class="navbar navbar-light mt-3">
 			<div class="container-fluid">
 	  			<a class="nav-link" href="/songs/add">Add new</a>
-	    		<a class="nav-link" href="/search/TopTen">Top songs</a>
-	    		<form:form class="d-flex">
-	    			<input class="form-control me-2" type="search" placeholder="Search by artist" aria-label="Search">
+	    		<a class="nav-link" href="/search/TopTen">Top rated songs</a>
+	    		<form:form class="d-flex" action="/search" method="post">
+	    			<input class="form-control me-2" name="artist" type="search" placeholder="Search by artist" aria-label="Search">
 	        		<button class="btn btn-outline-primary" type="submit">Search</button>
 	     		</form:form>
 			</div>
 		</nav>
-	</div>
-	<!-- Add a table showing all entries in the repo -->
-	<div class="container mt-2 p-3">
-		<div class="main form-group row">
-			<table class="table table-striped">
-	    		<thead>
-	        		<tr>
-	            		<th>Name</th>
-	            		<th>Rating</th>
-	            		<th>Actions</th>
-	        		</tr>
-	    		</thead>
-	    		<tbody>
-	        		<c:forEach items="${songs}" var="song">
-	        			<tr>
-	            			<td><a href="/songs/${song.id}"><c:out value="${song.title}"/></a></td>
-	            			<td><c:out value="${song.rating}"/></td>
-	            			<td>
-		            			<a class="m-3" href="/songs/${song.id}/delete">Delete</a>            	
-	            			</td>
-	        			</tr>
-	        		</c:forEach>
-	    		</tbody>
-			</table>
+		<!-- Add a table showing all entries in the repo -->
+		<div class="container mt-2 p-3">
+			<div class="main form-group row">
+				<table class="table table-striped">
+		    		<thead>
+		        		<tr>
+		            		<th>Name</th>
+		            		<th>Artist</th>
+		            		<th>Genre</th>
+		            		<th>Rating</th>
+		            		<th>Actions</th>
+		        		</tr>
+		    		</thead>
+		    		<tbody>
+		        		<c:forEach items="${songs}" var="song">
+		        			<tr>
+		            			<td><a href="/songs/${song.id}"><c:out value="${song.title}"/></a></td>
+		            			<td><c:out value="${song.artist}"/></td>
+		            			<td><c:out value="${song.genre}"/></td>
+		            			<td><c:out value="${song.rating}"/></td>
+		            			<td>
+			            			<a class="m-3" href="/songs/${song.id}/delete">Delete</a>            	
+		            			</td>
+		        			</tr>
+		        		</c:forEach>
+		    		</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 	<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>

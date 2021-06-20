@@ -72,6 +72,7 @@ public class LookifyService {
     	return null;
     }
     
+    
 	/**
 	 * updates an entry if it exists
 	 **/
@@ -84,5 +85,19 @@ public class LookifyService {
         }
     }
 	
+    /**
+     * returns all songs by artist
+     **/
+    public List<Lookify> findByArtist(String artist) {
+    	return songRepo.findByArtistContaining(artist);
+    }
+    
+    /**
+     * returns the top 10 songs by rating from the repository
+     **/
+    public List<Lookify> findTopTen() {
+    	return songRepo.findTopTenWithNativeQuery();
+    }
+    
 
 }

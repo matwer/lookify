@@ -40,11 +40,14 @@ public class Lookify {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min = 5, max = 200)
+    @Size(min = 3, max = 200)
     private String title;
     @NotNull
-    @Size(min = 5, max = 200)
+    @Size(min = 3, max = 200)
     private String artist;
+    @NotNull
+    @Size(min = 3, max = 200)
+    private String genre;
     @NotNull
     @Min(1)
     @Max(10)
@@ -87,11 +90,13 @@ public class Lookify {
 	/**
 	 * a constructor which sets the title, artist and rating to @param list
 	 **/
-    public Lookify(String title, String artist, Integer rating) {
+    public Lookify(String title, String artist, String genre, Integer rating) {
     	this.title = title;
     	this.artist = artist;
+    	this.genre = genre;
     	this.rating = rating;
     }
+
 
 	/**
 	 * @return the id
@@ -133,6 +138,20 @@ public class Lookify {
 	 **/
 	public void setArtist(String artist) {
 		this.artist = artist;
+	}
+
+	/**
+	 * @return the genre
+	 */
+	public String getGenre() {
+		return genre;
+	}
+	
+	/**
+	 * set the artist to @param genre
+	 */
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
 	/**

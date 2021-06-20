@@ -15,24 +15,34 @@
 	<link rel="stylesheet" href="/webjars/bootstrap/5.0.1/css/bootstrap.min.css" />
 </head>
 <body>
-	<div class="container bg-light mt-5 p-3">
-		<a class="nav-link text-end" href="/dashboard">Dashboard</a>
-		<div class="main form-group row mt-5 bg-light">
+	<div class="container mt-5 border border-dark">
+		<nav class="navbar navbar-light mt-2">
+			<div class="container-fluid">
+				<a class="nav-link disabled text-start">Add song</a>
+				<a href="/dashboard" class="nav-link text-end">Dashboard</a>
+			</div>
+		</nav>
+		<div class="main form-group row mt-2 p-3 bg-light">
 			<form:form action="/songs/new" method="post" modelAttribute="song">
 	    		<p class="m-3">
-	        		<form:label  class="col-sm-2 col-form-label" path="title">Title</form:label>
-	        		<form:errors path="title"/>
+	        		<form:label  class="col-sm-2 col-form-label" path="title">Title (min 3 characters)</form:label>
+	        		<form:errors class="text-danger" path="title"/>
 	        		<form:input class="form-control" path="title"/>
 	    		</p>
 			    <p class="m-3">
-			        <form:label class="col-sm-2 col-form-label" path="artist">Artist</form:label>
-			        <form:errors path="artist"/>
+			        <form:label class="col-sm-2 col-form-label" path="artist">Artist (min 3 characters)</form:label>
+			        <form:errors class="text-danger" path="artist"/>
 			        <form:textarea class="form-control" path="artist"/>
 			    </p>
 			    <p class="m-3">
-			        <form:label class="col-sm-2 col-form-label" path="rating">Rating</form:label>
-			        <form:errors path="rating"/>
-			        <form:input class="form-control" path="rating"/>
+			        <form:label class="col-sm-2 col-form-label" path="genre">Genre (min 3 characters)</form:label>
+			        <form:errors class="text-danger" path="genre"/>
+			        <form:textarea class="form-control" path="genre"/>
+			    </p>
+			    <p class="m-3">
+			        <form:label class="col-sm-2 col-form-label" path="rating">Rating (1-10)</form:label>
+			        <form:errors class="text-danger" path="rating"/>
+			        <form:input class="form-control" path="rating" message="must be between 1-10"/>
 			    </p>  
 				<input type="submit" value="Add song" class="m-3"/>
 			</form:form>

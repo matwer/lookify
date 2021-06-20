@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shad.lookify.controllers.Lookify;
 import com.shad.lookify.services.LookifyService;
@@ -74,7 +75,7 @@ public class LookifyController {
 		model.addAttribute("song", song);
 		return "/readOne.jsp";
 	}
-		
+	
 	/**
 	 * set up a route for deleting an entry
 	 **/
@@ -86,6 +87,24 @@ public class LookifyController {
         return "redirect:/dashboard";
     }
 	
+    /**
+     * set up a route to display the top 10 songs
+     **/
+    @RequestMapping(value="/search/TopTen")
+    public String topTen(Model model) {
+    	model.addAttribute("songs", service.findTopTen());
+    	return "topTen.jsp";
+    }
+    
+    /**
+     * set up a route to display songs by artist
+     **/
+    @RequestMapping(value="/search", method=RequestMethod.POST)
+    public String songsByArtist(@RequestParam(value="artist", required=false) String artist, Model model) {
+    	System.out.println("artist is controller is " + artist);
+    	model.addAttribute("songs", service.findByArtist(artist));
+    	return "artist.jsp";
+    }
 	
 
 }
