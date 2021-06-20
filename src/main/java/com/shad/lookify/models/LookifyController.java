@@ -101,7 +101,6 @@ public class LookifyController {
      **/
     @RequestMapping(value="/search", method=RequestMethod.POST)
     public String songsByArtist(@RequestParam(value="artist", required=false) String artist, Model model) {
-    	System.out.println("artist is controller is " + artist);
     	model.addAttribute("songs", service.findByArtist(artist));
     	return "artist.jsp";
     }
