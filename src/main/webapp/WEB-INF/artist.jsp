@@ -16,7 +16,7 @@
 	<div class="container mt-5">
 		<nav class="navbar navbar-light bg-light">
 			<div class="container-fluid">
-				<p class="text-start">Songs by <c:out value="${song.artist}"/></p>
+				<p class="text-start">Songs by <c:out value="${artist}"/></p>
 	    		<form:form class="d-flex" action="/search" method="post">
 	    			<input class="form-control me-2" name="artist" type="search" placeholder="New search" aria-label="Search">
 	        		<button class="btn btn-outline-primary" type="submit">Search</button>
@@ -28,7 +28,8 @@
 			<table class="table table-striped">
 	    		<thead>
 	        		<tr>
-	            		<th>Name</th>
+	        			<th>Artist</th>
+	            		<th>Song</th>
 	            		<th>Genre</th>
 	            		<th>Rating</th>
 	            		<th>Actions</th>
@@ -37,6 +38,7 @@
 	    		<tbody>
 	        		<c:forEach items="${songs}" var="song">
 	        			<tr>
+	        				<td><c:out value="${song.artist}"/></td>
 	            			<td><a href="/songs/${song.id}"><c:out value="${song.title}"/></a></td>
 	            			<td><c:out value="${song.genre}"/></td>
 	            			<td><c:out value="${song.rating}"/></td>

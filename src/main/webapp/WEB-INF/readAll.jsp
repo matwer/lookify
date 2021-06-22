@@ -33,8 +33,8 @@
 				<table class="table table-striped">
 		    		<thead>
 		        		<tr>
-		            		<th>Name</th>
 		            		<th>Artist</th>
+		            		<th>Title</th>
 		            		<th>Genre</th>
 		            		<th>Rating</th>
 		            		<th>Actions</th>
@@ -43,8 +43,8 @@
 		    		<tbody>
 		        		<c:forEach items="${songs}" var="song">
 		        			<tr>
-		            			<td><a href="/songs/${song.id}"><c:out value="${song.title}"/></a></td>
 		            			<td><c:out value="${song.artist}"/></td>
+		            			<td><a href="/songs/${song.id}"><c:out value="${song.title}"/></a></td>
 		            			<td><c:out value="${song.genre}"/></td>
 		            			<td><c:out value="${song.rating}"/></td>
 		            			<td>

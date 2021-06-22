@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.shad.lookify.controllers.Lookify;
+import com.shad.lookify.models.Lookify;
 import com.shad.lookify.repositories.LookifyRepository;
 
 /**

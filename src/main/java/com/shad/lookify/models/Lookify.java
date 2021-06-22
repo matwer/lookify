@@ -3,7 +3,7 @@
  * creating the table with getters and setters for all member variables
  **/
 
-package com.shad.lookify.controllers;
+package com.shad.lookify.models;
 
 import java.util.Date;
 
@@ -53,13 +53,19 @@ public class Lookify {
     @Max(10)
     private int rating;
     
+    
 	/**
 	 * set the Date-Time format to the @param pattern
 	 **/
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date updatedAt;
+    
+    
+    /**
+     * tell the system the createdAt field should NOT be updated with each save
+     **/
+    @Column(updatable=false)
+    
     
 	/**
 	 * generate the @createdAt date before the record is saved
@@ -69,11 +75,11 @@ public class Lookify {
     	this.createdAt = new Date();
     }
     
-	/**
-	 * tell the system the createdAt field should NOT be updated with each save
-	 **/
-    @Column(updatable=false)
+    
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date updatedAt;
 
+    
 	/**
 	 * capture the date when a record is updated
 	 **/
@@ -82,10 +88,12 @@ public class Lookify {
     	this.updatedAt = new Date();
     }
     
+    
 	/**
 	 * constructor with no parameters @REQUIRED
 	 **/
     public Lookify() {}
+    
     
 	/**
 	 * a constructor which sets the title, artist and rating to @param list
@@ -105,6 +113,7 @@ public class Lookify {
 		return id;
 	}
 
+	
 	/**
 	 * set the id to @param id
 	 **/
@@ -112,6 +121,7 @@ public class Lookify {
 		this.id = id;
 	}
 
+	
 	/**
 	 * @return the title
 	 **/
@@ -119,6 +129,7 @@ public class Lookify {
 		return title;
 	}
 
+	
 	/**
 	 * set the title to @param title
 	 **/
@@ -126,6 +137,7 @@ public class Lookify {
 		this.title = title;
 	}
 
+	
 	/**
 	 * @return the artist
 	 **/
@@ -133,6 +145,7 @@ public class Lookify {
 		return artist;
 	}
 
+	
 	/**
 	 * set the artist to @param artist
 	 **/
@@ -140,12 +153,14 @@ public class Lookify {
 		this.artist = artist;
 	}
 
+	
 	/**
 	 * @return the genre
 	 */
 	public String getGenre() {
 		return genre;
 	}
+	
 	
 	/**
 	 * set the artist to @param genre
@@ -154,6 +169,7 @@ public class Lookify {
 		this.genre = genre;
 	}
 
+	
 	/**
 	 * @return the rating
 	 **/
@@ -161,6 +177,7 @@ public class Lookify {
 		return rating;
 	}
 
+	
 	/**
 	 * set the rating to @param rating
 	 **/
@@ -168,6 +185,7 @@ public class Lookify {
 		this.rating = rating;
 	}
 
+	
 	/**
 	 * @return createdAt
 	 **/
@@ -175,6 +193,7 @@ public class Lookify {
 		return createdAt;
 	}
 
+	
 	/**
 	 * set createdAt to @param createdAt
 	 **/
@@ -182,6 +201,7 @@ public class Lookify {
 		this.createdAt = createdAt;
 	}
 
+	
 	/**
 	 * @return updatedAt
 	 **/
@@ -189,6 +209,7 @@ public class Lookify {
 		return updatedAt;
 	}
 
+	
 	/**
 	 * set updatedAt to @param updatedAt
 	 **/

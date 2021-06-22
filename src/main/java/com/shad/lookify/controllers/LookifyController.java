@@ -3,7 +3,7 @@
  * setting up a controller to handle the routes
  **/
 
-package com.shad.lookify.models;
+package com.shad.lookify.controllers;
 
 import javax.validation.Valid;
 
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.shad.lookify.controllers.Lookify;
+import com.shad.lookify.models.Lookify;
 import com.shad.lookify.services.LookifyService;
 
 @Controller
@@ -101,9 +101,9 @@ public class LookifyController {
      **/
     @RequestMapping(value="/search", method=RequestMethod.POST)
     public String songsByArtist(@RequestParam(value="artist", required=false) String artist, Model model) {
+    	model.addAttribute("artist", artist);
     	model.addAttribute("songs", service.findByArtist(artist));
     	return "artist.jsp";
     }
-	
 
 }

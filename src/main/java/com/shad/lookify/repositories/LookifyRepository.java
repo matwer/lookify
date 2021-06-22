@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.shad.lookify.controllers.Lookify;
+import com.shad.lookify.models.Lookify;
 
 public interface LookifyRepository extends CrudRepository<Lookify, Long> {
 

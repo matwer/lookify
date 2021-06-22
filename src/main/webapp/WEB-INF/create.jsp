@@ -32,12 +32,12 @@
 			    <p class="m-3">
 			        <form:label class="col-sm-2 col-form-label" path="artist">Artist (min 3 characters)</form:label>
 			        <form:errors class="text-danger" path="artist"/>
-			        <form:textarea class="form-control" path="artist"/>
+			        <form:input class="form-control" path="artist"/>
 			    </p>
 			    <p class="m-3">
 			        <form:label class="col-sm-2 col-form-label" path="genre">Genre (min 3 characters)</form:label>
 			        <form:errors class="text-danger" path="genre"/>
-			        <form:textarea class="form-control" path="genre"/>
+			        <form:input class="form-control" path="genre"/>
 			    </p>
 			    <p class="m-3">
 			        <form:label class="col-sm-2 col-form-label" path="rating">Rating (1-10)</form:label>
